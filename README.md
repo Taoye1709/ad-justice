@@ -46,7 +46,9 @@ AdJustice 在电视上建立本地 HTTP 代理，拦截运营商（ISP）注入�
 
 ## 安装
 
-从 [Releases](../../releases) 下载 APK，通过 U 盘或文件传输安装到电视。
+从 [Releases](../../releases) 下载 APK（最新版 v1.0.0：
+<https://github.com/Taoye1709/ad-justice/releases/download/v1.0.0/app-debug.apk>），
+通过 U 盘或文件传输安装到电视。
 
 > **首次使用需要授权**（一次性，通过 adb）：
 >
