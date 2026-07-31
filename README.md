@@ -98,14 +98,6 @@ cd ad-justice
 - `host`：目标域名
 - `headers`：响应头（含注入特征，可作投诉证据）
 
-## 举报渠道
-
-证据确认后，建议并行提交：
-
-1. **12321 网络不良与垃圾信息举报中心**：<https://www.12321.cn/>
-2. **工信部电信用户申诉受理中心**：<https://yhss.miit.gov.cn/>
-3. 运营商客服：电信 10000 / 联通 10010 / 移动 10086
-
 ## 技术背景
 
 完整实测诊断报告：[docs/ISP_DNS_HIJACK_REPORT.md](docs/ISP_DNS_HIJACK_REPORT.md)
