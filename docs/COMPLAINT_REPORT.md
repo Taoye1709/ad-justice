@@ -1,6 +1,6 @@
 # 运营商 DNS 劫持与广告注入 举报材料
 
-> **举报人网络环境：** 家庭宽带，路由器：家庭路由器（内网地址）
+> **举报人网络环境：** 家庭宽带（运营商信息及宽带账号可另行提供）
 > **受害设备：** WhaleyTV WTV55K1J 智能电视（Android 5.0.2，WUI 2.0）
 > **证据采集时间：** 2026-07-31 16:14 ~ 17:35（CST）
 > **证据采集工具：** AdJustice（开源，GPL-3.0，源码：https://github.com/Taoye1709/ad-justice）
@@ -91,9 +91,9 @@
 
 ```
 Via: 1.1                              ← 透明代理标记
-x-via: 1.1 inXX:XX (Cdn Cache Server V2.0)
+x-via: 1.1 inXX:XX (Cdn Cache Server V2.0)   ← 节点编号已隐去
 Server: openresty/1.27.1.2
-x-ws-request-id: xxxxxxxx_xxx_xxxxx-xxxxx
+x-ws-request-id: xxxxxxxx_xxx_xxxxx-xxxxx   ← 已隐去
 ```
 
 ---
@@ -131,8 +131,7 @@ UDP 53 查询 → 运营商篡改 DNS 响应 → 返回海外广告服务器 IP
 
 ## 六、举报建议
 
-建议向以下渠道提交，附本报告 + 电视上 `files/adj_evidence/hijack_log.jsonl`
-原始证据文件：
+建议向以下渠道提交，附本报告（50 条原始证据在设备本地，可按需另行提供）：
 
 1. **12321 网络不良与垃圾信息举报中心**：https://www.12321.cn/
 2. **工信部电信用户申诉受理中心**：https://yhss.miit.gov.cn/
@@ -147,13 +146,14 @@ UDP 53 查询 → 运营商篡改 DNS 响应 → 返回海外广告服务器 IP
 > （90%+，覆盖百度/淘宝/腾讯等域名），而 TCP 53 与 DoH 查询正常，
 > 证明污染发生在运营商 UDP 通道。电视播放视频时，非法广告（保健品/
 > 赌博/诱导充值）被注入，广告流量指向委内瑞拉、加纳、乌克兰等海外
-> 服务器。已用开源工具 AdJustice 采集 50 条拦截证据（附 JSONL 文件），
-> 请求核查并处置本线路 DNS 劫持与广告注入问题。
+> 服务器。已用开源工具 AdJustice 采集 50 条拦截证据（在设备本地，
+> 可按需提供），请求核查并处置本线路 DNS 劫持与广告注入问题。
 
 ---
 
-## 七、附：原始证据
+## 七、原始证据说明
 
-- 拦截日志（JSONL，50 条）：`hijack_log.jsonl`（本目录）
+- 拦截日志（JSONL，50 条）：在设备本地（`<filesDir>/adj_evidence/hijack_log.jsonl`），
+  未随本报告上传，可按需另行提供
 - 每条记录含：时间戳、拦截类型、目标域名、完整响应头（含注入特征）
 - 验证方式：AdJustice 源码可审计（GPL-3.0），证据在设备本地生成
