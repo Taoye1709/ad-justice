@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tv_title_size">28sp</dimen>
+    <dimen name="tv_body_size">20sp</dimen>
+    <dimen name="tv_caption_size">16sp</dimen>
+    <dimen name="tv_button_text">22sp</dimen>
+    <dimen name="event_padding">24dp</dimen>
+</resources>

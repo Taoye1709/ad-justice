@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AdJustice</string>
+    <string name="app_subtitle">电视广告劫持取证</string>
+
+    <!-- Notification channels -->
+    <string name="channel_service">取证监控服务</string>
+    <string name="channel_event">疑似劫持事件</string>
+
+    <!-- Notification texts -->
+    <string name="notification_running_title">AdJustice 监控中</string>
+    <string name="notification_running_text">正在守护你的电视屏幕。疑似劫持时此处会提醒。</string>
+    <string name="notification_event_title">发现疑似劫持事件 #%1$d</string>
+    <string name="notification_event_text">已抓取证据。打开 App 核对。</string>
+    <string name="notification_event_manual_btn">立即取证</string>
+
+    <!-- Main UI -->
+    <string name="start_monitoring">开始监控</string>
+    <string name="stop_monitoring">停止监控</string>
+    <string name="manual_capture">立即取证（看到非法广告时点此）</string>
+
+    <string name="settings">设置</string>
+
+    <!-- Detail -->
+    <string name="frame_label">画面 %1$d</string>
+    <string name="qr_decoded_label">二维码内容</string>
+    <string name="qr_none_label">本张截图未发现二维码</string>
+    <string name="dns_check_label">DNS 劫持检测结果</string>
+    <string name="dns_hijacked">⚠️ 检测到 DNS 劫持</string>
+    <string name="dns_clean">✓ DNS 解析正常</string>
+    <string name="dns_not_checked">未执行 DNS 检测</string>
+    <string name="verdict_label">你的核对结论</string>
+    <string name="verdict_pending">尚未核对</string>
+    <string name="verdict_hijacked">已确认为劫持</string>
+    <string name="verdict_clean">已确认为正常</string>
+    <string name="mark_hijacked">确认 → 这是劫持广告</string>
+    <string name="mark_clean">这是正常广告</string>
+    <string name="dismiss_event">忽略此事件</string>
+    <string name="generate_report">生成举报材料</string>
+
+    <!-- Report preview -->
+    <string name="report_preview_title">举报材料（预览）</string>
+    <string name="copy_report">复制文本</string>
+    <string name="open_12321">打开 12321 举报平台</string>
+    <string name="open_miit">打开工信部申诉平台</string>
+    <string name="saved_to_evidence">已生成举报材料，已存入证据目录</string>
+
+    <!-- Settings -->
+    <string name="settings_title">设置</string>
+    <string name="setting_capture_interval">检测间隔（秒）</string>
+    <string name="setting_change_threshold">像素变化阈值（百分比）</string>
+    <string name="setting_dns_check_enabled">抓取时同步检测 DNS 劫持</string>
+    <string name="setting_about">关于 AdJustice</string>
+
+    <!-- About -->
+    <string name="about_text">
+AdJustice v1.0.0
+
+开源电视广告劫持取证工具。
+
+本应用使用标准 Android API（MediaProjection 截图、UDP 协议查询 DNS），
+仅在疑似广告时段抓取 3 张画面并尝试解码其中的二维码，
+同时若开启会比对系统 DNS 与可信 DNS 的解析结果以判定 DNS 劫持。
+
+所有证据数据都保存在你的设备本地。
+不会上传到任何第三方。不会运行 AI 模型。
+不开 VPN、不抓取其他 App 数据。
+
+举报材料完全由你确认后再生成。
+你拥有完整的核对与选择权。
+
+GitHub: https://github.com/adjustice/adjustice
+License: GPL-3.0
+    </string>
+
+    <!-- Permissions -->
+    <string name="permission_screen_capture_title">授予屏幕截图权限</string>
+    <string name="permission_screen_capture_desc">
+AdJustice 需要MediaProjection 权限来截取电视屏幕画面。
+点击下方按钮，并在弹出的系统对话框中允许截屏。
+你的截图只保存在设备本地，绝不上传。
+    </string>
+    <string name="permission_notification_title">授予通知权限</string>
+    <string name="permission_notification_desc">
+为了在发现疑似劫持广告时提醒你，需要授予通知权限。
+在 Android 13 及以上的系统会要求你手动允许。
+    </string>
+    <string name="grant_permission">授予权限</string>
+<string name="permission_denied">未授权，无法启动监控</string>
+
+    <!-- DNS Protection -->
+    <string name="setting_block_enabled">自动开启 DNS 保护（检测到劫持后立即阻止非法广告）</string>
+    <string name="dns_protect_enabled">DNS 保护已开启，运营商将无法劫持广告。无需其他操作。</string>
+    <string name="dns_protect_failed">DNS 保护设置失败。请手动更改路由器 DNS。</string>
+
+    <string name="vpn_notification_title">广告拦截运行中</string>
+    <string name="vpn_notification_text">正在为您过滤运营商劫持的非法广告</string>
+
+</resources>
