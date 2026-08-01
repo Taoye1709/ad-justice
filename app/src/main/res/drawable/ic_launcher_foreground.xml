@@ -4,7 +4,8 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <path android:fillColor="#0F0F0F" android:pathData="M0,0 h108 v108 h-108 z" />
-    <path android:fillColor="#FF6F00" android:pathData="M54,16 L26,82 L36,82 L54,40 L72,82 L82,82 Z" />
-    <path android:fillColor="#FFFFFF" android:pathData="M54,60 m-6,0 a6,6 0 1,0 12,0 a6,6 0 1,0 -12,0" />
+    <!-- Adaptive-icon foreground: artwork scaled into the 66/108 safe zone (center 54,54, radius 33).
+         Launcher masks the outer ring, so the "A" + dot must stay inside x/y 21..87. -->
+    <path android:fillColor="#FF6F00" android:pathData="M54,21 L29,83 L38,83 L54,46 L70,83 L79,83 Z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M54,62 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
 </vector>

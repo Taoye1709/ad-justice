@@ -96,4 +96,11 @@ AdJustice 需要MediaProjection 权限来截取电视屏幕画面。
     <string name="vpn_notification_title">广告拦截运行中</string>
     <string name="vpn_notification_text">正在为您过滤运营商劫持的非法广告</string>
 
+    <!-- Accessibility boot channel -->
+    <string name="accessibility_service_description">
+AdJustice 使用无障碍服务作为开机自启通道：部分电视 ROM 禁止第三方应用监听开机广播，
+本服务由系统开机时自动绑定，用于检测并恢复上次未关闭的广告拦截，保证电视重启后网络正常。
+本服务不读取任何屏幕内容、不收集任何数据，仅用于开机自启。
+    </string>
+
 </resources>

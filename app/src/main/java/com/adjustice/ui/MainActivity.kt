@@ -6,6 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.adjustice.proxy.HttpBlockProxyService
+import com.adjustice.receiver.ProxyBootReceiver
 import com.adjustice.R
 import java.io.File
 
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         btnStartStop.setOnClickListener {
             if (proxyRunning) {
+                ProxyBootReceiver.cancelKeepAlive(this)
                 HttpBlockProxyService.stop(this)
                 HttpBlockProxyService.setGlobalProxy(this, false)
                 proxyRunning = false
@@ -66,10 +68,12 @@ class MainActivity : AppCompatActivity() {
             HttpBlockProxyService.start(this)
             proxyRunning = true
             val proxyOk = HttpBlockProxyService.setGlobalProxy(this, true)
-            updateUi()
             if (proxyOk) {
+                ProxyBootReceiver.scheduleKeepAlive(this)
+                updateUi()
                 showStatus("拦截已启动，HTTP 代理已生效")
             } else {
+                updateUi()
                 showStatus("拦截服务已启动，但设置全局代理失败，请先授予 WRITE_SECURE_SETTINGS 权限")
             }
         } catch (e: Exception) {
@@ -81,8 +85,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateUi() {
-        findViewById<Button>(R.id.btn_start_stop).text =
-            if (proxyRunning) "停止监控" else "开始监控"
+        val btnStartStop = findViewById<Button>(R.id.btn_start_stop)
+        btnStartStop.text =
+            if (proxyRunning) getString(R.string.stop_monitoring) else getString(R.string.start_monitoring)
+        // 激活态驱动 selector：监控中 = 红色实心（危险语义），空闲 = 橙色实心（主 CTA）
+        btnStartStop.isActivated = proxyRunning
     }
 
     private fun showStatus(msg: String) {

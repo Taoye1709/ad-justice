@@ -44,18 +44,27 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_marginEnd="12dp"
+            android:background="@drawable/bg_btn_start_stop"
             android:minHeight="64dp"
+            android:paddingVertical="16dp"
+            android:stateListAnimator="@animator/btn_elevation"
+            android:text="@string/start_monitoring"
+            android:textColor="#FFFFFFFF"
             android:textSize="@dimen/tv_button_text"
-            android:text="@string/start_monitoring" />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btn_settings"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn_settings"
             android:minHeight="64dp"
-            android:textSize="@dimen/tv_button_text"
-            android:text="@string/settings" />
+            android:paddingVertical="16dp"
+            android:stateListAnimator="@animator/btn_elevation"
+            android:text="@string/settings"
+            android:textColor="@color/text_btn_settings"
+            android:textSize="@dimen/tv_button_text" />
     </LinearLayout>
 
     <!-- Hijack count -->

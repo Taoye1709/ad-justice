@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- TV 遥控器焦点平滑反馈：聚焦/按下时轻微抬升（translationZ），
+     纯属性动画，零内存开销。 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_focused="true" android:state_enabled="true">
+        <set>
+            <objectAnimator
+                android:duration="150"
+                android:propertyName="translationZ"
+                android:valueTo="12dp"
+                android:valueType="floatType" />
+        </set>
+    </item>
+    <item android:state_pressed="true" android:state_enabled="true">
+        <set>
+            <objectAnimator
+                android:duration="100"
+                android:propertyName="translationZ"
+                android:valueTo="8dp"
+                android:valueType="floatType" />
+        </set>
+    </item>
+    <item>
+        <set>
+            <objectAnimator
+                android:duration="150"
+                android:propertyName="translationZ"
+                android:valueTo="0dp"
+                android:valueType="floatType" />
+        </set>
+    </item>
+</selector>

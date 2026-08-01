@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 主按钮（开始/停止监控）：未激活=橙色实心（主 CTA），激活=红色实心（危险语义）。
+     TV 遥控器聚焦时白色描边环 + 提亮，确保焦点可见。 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 监控中 + 聚焦 -->
+    <item android:state_activated="true" android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFE53935" />
+            <corners android:radius="8dp" />
+            <stroke android:width="3dp" android:color="#FFFFFFFF" />
+        </shape>
+    </item>
+    <!-- 监控中 + 按下 -->
+    <item android:state_activated="true" android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFB71C1C" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    <!-- 监控中 -->
+    <item android:state_activated="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFD32F2F" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    <!-- 空闲 + 聚焦 -->
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFF8F00" />
+            <corners android:radius="8dp" />
+            <stroke android:width="3dp" android:color="#FFFFFFFF" />
+        </shape>
+    </item>
+    <!-- 空闲 + 按下 -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#FFE65100" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+    <!-- 空闲默认 -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FFFF6F00" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+</selector>

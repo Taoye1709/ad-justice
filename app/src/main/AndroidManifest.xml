@@ -25,6 +25,8 @@
     <!-- WRITE_SECURE_SETTINGS for Private DNS switching (granted via adb) -->
     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
+    <!-- RECEIVE_BOOT_COMPLETED — kept for non-WhaleyTV ROMs and compatibility -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <!-- TV features — declare this is a TV app -->
     <uses-feature android:name="android.software.leanback" android:required="false" />
@@ -33,7 +35,8 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AdJustice"
@@ -88,6 +91,35 @@
         <receiver
             android:name=".vpn.VpnKeepAlive"
             android:exported="false" />
+
+        <!-- Proxy restorer. WhaleyTV blacklists BOOT_COMPLETED/CONNECTIVITY_CHANGE
+             for 3rd-party apps (logcat: "skip receiver package:com.adjustice").
+             Boot self-start is now handled by ProxyAutoStartAccessibilityService.
+             The keep-alive alarm assists during runtime. -->
+        <receiver
+            android:name=".receiver.ProxyBootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 开机自启通道：系统开机直接绑定已启用的无障碍服务（不经过广播分发，
+             绕开 WhaleyTV ROM 对第三方开机广播的黑名单）。BIND_ACCESSIBILITY_SERVICE
+             权限仅授予系统，exported=true 不会带来第三方绑定风险。 -->
+        <service
+            android:name=".receiver.ProxyAutoStartAccessibilityService"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_config" />
+        </service>
 
     </application>
 
